@@ -3410,10 +3410,10 @@ sub ReadConfigurationFile { # parses the configuration file
 		}
 		else {
 			# if a variable is set that is usually given via the command line and stored in $Options
-			if ($Line =~ m/\$Options->{/) {
+			if ($Line =~ m/\$Options->\{/) {
 				# cut out the option from the line (e.g. "$Options->{ep}" => "ep"
 				my $Option = $Line;
-				$Option =~ s/^\s*\$Options->{([a-zA-Z0-9]+)}.+\s*$/$1/;
+				$Option =~ s/^\s*\$Options->\{([a-zA-Z0-9]+)}.+\s*$/$1/;
 				#
 				# if the option was NOT given via the command line (which would override the configuration
 				# file value)
